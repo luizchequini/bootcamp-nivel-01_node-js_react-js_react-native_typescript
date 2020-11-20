@@ -1,5 +1,11 @@
-const soma = (a, b) => {
-    return a + b;
+import {soma} from './soma';
+
+const subtracao = (a, b) => {
+    if(a < b){
+        return b - a;
+    }
+    return a - b;
 }
 
-console.log(soma(1, 3));
+console.log(soma(10, 10));
+console.log(subtracao(1, 3));
