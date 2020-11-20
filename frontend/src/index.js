@@ -1,11 +1,6 @@
-import {soma} from './soma';
+import React from 'react'
+import {render} from 'react-dom'
 
-const subtracao = (a, b) => {
-    if(a < b){
-        return b - a;
-    }
-    return a - b;
-}
+import App from './App';
 
-console.log(soma(10, 10));
-console.log(subtracao(1, 3));
+render(<App />, document.getElementById('app'));
