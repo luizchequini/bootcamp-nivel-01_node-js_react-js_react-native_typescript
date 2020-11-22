@@ -12,6 +12,19 @@
  * 
  * Esta biblioteca monitora as alterações nos arquivos *.js e atualiza o bundler
  * yarn add webpack-dev-server -D
- * Executando
+ * Inicializa e Executando Servidor
  * yarn webpack serve --mode development
+ * 
+ * JSX: Html dentro do Javascript (Javascript XML)
+ * 
+ * Três conceitos mais importantes do React
+ * 
+ * Componentes
+ * Propriedades
+ * Estado e Imutabilidade
+ *  - useState retorna um array com 2 posições
+ *  - 1. Variável com seu valor inicial, isto é o array {'back-end', 'front-end'}
+ *  - 2. Função para atualizarmos o valor acima.
+ * 
+ * yarn add style-loader css-loader
  */
