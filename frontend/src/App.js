@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import api from './services/api'
 
 import './App.css'
 import background from './assets/motos-custom-2020.jpg'
@@ -7,10 +8,24 @@ import Header from './components/Header';
 
 function App(){
 
-    const [projects, setProjects] = useState(['Back-End', 'Front-End', 'Full-Stack']);
+    const [projects, setProjects] = useState([]);
     
-    function handleAddProject(){
-        setProjects([...projects, `Novo Projeto ${Date.now()}`]);
+    useEffect(() => {
+        api.get('projects').then(response => {
+            setProjects(response.data);
+        })
+    }, []);
+
+    async function handleAddProject(){
+        
+        const response = await api.post('projects', {
+            title: `Novo Projeto ${Date.now()}`,
+            owner: "Luiz Chequini"
+        });
+
+        const project = response.data;
+        
+        setProjects([...projects, project]);
     };
 
     return (
@@ -21,7 +36,7 @@ function App(){
             
             <Header title="Projetos Executados">
                 <ul>
-                    {projects.map(project => <li key={project}>{project}</li>)}
+                    {projects.map(project => <li key={project.id}>{project.title}</li>)}
                 </ul>
             </Header>
         </>
